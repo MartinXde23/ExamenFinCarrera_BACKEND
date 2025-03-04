@@ -1,27 +1,26 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";
-import token from "morgan"
 
 const UsuariosSchema = new Schema({
     nombre:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     apellido:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     email:{
         type:String,
         unique:true,
-        require:true,
+        required:true,
         trim:true
     },
     password:{
         type:String,
-        require:true
+        required:true
     }
 })
 

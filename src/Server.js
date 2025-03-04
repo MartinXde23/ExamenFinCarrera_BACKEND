@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import cors from 'cors'
 import routerUsuario from './Routers/RouterUsuarios.js'
+import routerCliente from './Routers/RouterClientes.js'
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 app.use('/api',routerUsuario)
+app.use('/api',routerCliente)
 
 app.get('/',(req,res)=>{ res.send("Servidor en Linea") })
 

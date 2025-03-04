@@ -1,53 +1,47 @@
-import { Schema, model } from "mongoose";
-import bcrypt from "bcryptjs";
-import { token } from "morgan";
+import { Schema, model } from "mongoose"
 
 const ClienteSchema = new Schema({
     cedula:{
-        try:Number,
-        require:true,
+        type:String,
+        required:true,
         trim:true
     },
     nombre:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     apellido:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     cuidad:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     email:{
         type:String,
         unique:true,
-        require:true,
+        required:true,
         trim:true
     },
     direccion:{
         type:String,
-        require:true,
+        required:true,
         trim:true
     },
     telefono:{
         type:String,
-        require:true,
+        required:true,
         trim:true,
         unique:true,
         default:null
     },
     fechaNacimiento:{
         type:Date,
-        require:true
-    },
-    password:{
-        type:String,
-        require:true
+        required:true
     }
 })
 
