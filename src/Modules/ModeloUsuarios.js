@@ -39,10 +39,5 @@ UsuariosSchema.methods.CompararPassword = async function (password){
     return comparacion
 }
 
-//Creacion de token
-UsuariosSchema.methods.GeneradorToken = function(){
-    const tokenSesion=this.token = Math.random().toString(36).slice(2)
-    return tokenSesion
-}
 
 export default model('Usuario', UsuariosSchema)
