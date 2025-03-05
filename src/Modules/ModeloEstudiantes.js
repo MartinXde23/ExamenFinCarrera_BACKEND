@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose"
 
-const ClienteSchema = new Schema({
+const EstudianteSchema = new Schema({
     cedula:{
         type:String,
         required:true,
@@ -45,4 +45,4 @@ const ClienteSchema = new Schema({
     }
 })
 
-export default model('Cliente',ClienteSchema)
+export default model('Estudiante',EstudianteSchema)

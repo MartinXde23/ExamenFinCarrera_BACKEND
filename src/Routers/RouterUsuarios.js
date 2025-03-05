@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { login, registro } from "../Controllers/ControladorUsuarios.js";
+import { login, Perfil, registro } from "../Controllers/ControladorUsuarios.js";
 
 
 const routerUsuario = Router()
 
 routerUsuario.post('/registro',registro)
-routerUsuario.post('/login',login)
-
+routerUsuario.post('/login', login)
+routerUsuario.get('/perfilUsuario',Perfil)
 export default routerUsuario

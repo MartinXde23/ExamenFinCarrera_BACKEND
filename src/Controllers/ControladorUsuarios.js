@@ -1,3 +1,4 @@
+import generarJWT from "../Helpers/CrearJWT.js";
 import ModeloUsuarios from "../Modules/ModeloUsuarios.js";
 
 const registro = async (req,res) => {
@@ -28,13 +29,23 @@ const login = async (req,res) => {
     const verificarPassword = await verificacionBDD.CompararPassword(password)
     if (!verificarPassword) return res.status(404).json({ msg: "Lo sentimos, la contraseña no es correcta" })
 
+    const token = generarJWT(verificacionBDD._id, 'Usuario')
+    const {_id} = verificacionBDD
+
     res.status(200).json({
-        _id: verificacionBDD._id,
-        rol:'Usuarios'
+        token,
+        _id:_id,
+        rol:'Usuario'
     })
+}
+const Perfil = async (req, res) =>{
+    delete req.usuarioBDD.token
+    delete req.usuarioBDD.__v
+    res.status(200).json(req.usuarioBDD)
 }
 
 export{
     registro,
-    login
+    login,
+    Perfil
 }
